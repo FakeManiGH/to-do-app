@@ -1,0 +1,14 @@
+body {
+    color: #e6e6e6;
+    background: #242424;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #e6e6e6;
+    background: #343434;
+    border-radius: 5px;
+}
