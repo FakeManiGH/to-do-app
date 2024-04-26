@@ -5,10 +5,19 @@ body {
 
 .task {
     display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     color: #e6e6e6;
-    background: #343434;
+    background: #333333;
     border-radius: 5px;
+}
+
+
+@media screen and (max-width: 480px) {
+    .input_group {
+        flex-direction: column;
+    }
+    
 }
