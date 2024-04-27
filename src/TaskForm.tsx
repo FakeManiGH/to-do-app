@@ -2,17 +2,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, ButtonGroup, Form } from 'react-bootstrap';
 import React, { useState } from 'react';
 
+// TaskFormProps is a TypeScript interface for the TaskForm component
 type TaskFormProps = {
     addTask: (id: number, task: string, date: string) => void;
 };
 
 const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
+
+    // Generates a random ID for the task (not a secure way to generate IDs)
     const generateId = (): number => {
         return Math.floor(Math.random() * 10000);
     };
-    const [task, setTask] = useState('');
-    const [date, setDate] = useState('');
+    const [task, setTask] = useState('');   // task is a string
+    const [date, setDate] = useState('');   // date is a string
 
+    // Handles the submission of the form
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const id = generateId();

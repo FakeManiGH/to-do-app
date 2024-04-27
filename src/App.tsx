@@ -5,15 +5,17 @@ import { useState } from 'react'
 
 
 function App() {
+  // The tasks state is initialized with the tasks stored in the local storage
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
     if (savedTasks) {
       return JSON.parse(savedTasks);
     } else {
-      return [];
+      return [];  // If there are no tasks in the local storage, return an empty array
     }
   });
 
+  // Adds a new task to the tasks state
   const addTask = (id: number, task: string, date: string) => {
     setTasks((prevTasks: {id: number, task: string, date: string}[]) => {
       const newTasks = [...prevTasks, { id, task, date }];
@@ -22,6 +24,7 @@ function App() {
     });
   }
 
+  // Edits an existing task in the tasks state
   const editTask = (taskIndex: number, newTask: {id: number, task: string, date: string}) => {
     setTasks((prevTasks: {id: number, task: string, date: string}[]) => {
       const newTasks = [...prevTasks];
@@ -31,6 +34,7 @@ function App() {
     });
   };
 
+  // Deletes a task from the tasks state
   const deleteTask = (taskIndex: number) => {
     setTasks((prevTasks: {id: number, task: string, date: string}[]) => {
       const newTasks = prevTasks.filter((_, index) => index !== taskIndex);

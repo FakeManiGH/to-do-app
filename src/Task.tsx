@@ -1,6 +1,7 @@
 import { Button, ButtonGroup, Form, InputGroup } from 'react-bootstrap';
 import { useState } from 'react';
 
+// TaskProps is a TypeScript interface for the Task component
 type TaskProps = {
     id: number;
     task: string;
@@ -14,12 +15,14 @@ const Task: React.FC<TaskProps> = ({ id, task, date, editTask, deleteTask }) => 
     const [newTask, setNewTask] = useState(task);
     const [newDate, setNewDate] = useState(date);
 
+    // Handles editing a task
     const handleEdit = (event: React.FormEvent) => {
         event.preventDefault();
         editTask({ id, task: newTask, date: newDate });
         setIsEditing(false);
     };
 
+    // Returns the color of the due date based on the difference between the due date and the current date
     const getDueColor = (dueDate: string) => {
         const now = new Date();
         const due = new Date(dueDate);
@@ -34,6 +37,7 @@ const Task: React.FC<TaskProps> = ({ id, task, date, editTask, deleteTask }) => 
         }
     };
 
+    // Returns the text of the due date based on the difference between the due date and the current date
     const getDueDateText = (dueDate: string) => {
         const now = new Date();
         now.setHours(0, 0, 0, 0); // set to start of day
