@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, ButtonGroup, Form, InputGroup } from 'react-bootstrap';
 import { useState } from 'react';
 
@@ -59,11 +60,11 @@ const Task: React.FC<TaskProps> = ({ id, task, date, editTask, deleteTask }) => 
             <Form className='d-flex justify-content-between gap-2 flex-wrap' onSubmit={handleEdit}>
                 <span className='input_group d-flex gap-2'>
                     <InputGroup>
-                        <InputGroup.Text id="basic-addon1"><strong>Date:</strong></InputGroup.Text>
+                        <InputGroup.Text id="basic-addon1"><Form.Label htmlFor='editDate'><strong>Date:</strong></Form.Label></InputGroup.Text>
                         <Form.Control type='date' value={newDate} onChange={(e) => setNewDate(e.target.value)} />
                     </InputGroup>
                     <InputGroup>
-                        <InputGroup.Text id="basic-addon1"><strong>Task:</strong></InputGroup.Text>
+                        <InputGroup.Text id="basic-addon1"><Form.Label htmlFor='editTask'><strong>Task:</strong></Form.Label></InputGroup.Text>
                         <Form.Control value={newTask} onChange={(e) => setNewTask(e.target.value)} />
                     </InputGroup>
                 </span>   

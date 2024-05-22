@@ -28,9 +28,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
     return (
         <Form onSubmit={handleSubmit} className="container mt-4 mb-4">
             <Form.Group className="mb-3">
-                <Form.Label><strong>New Task</strong></Form.Label>
+                <Form.Label htmlFor='task'><strong>New Task</strong></Form.Label>
                 <Form.Control 
-                    type="text" 
+                    type="text"
+                    id='task'
                     placeholder="Enter a new task" 
                     value={task} 
                     onChange={e => setTask(e.target.value)} 
@@ -38,9 +39,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label><strong>Date</strong></Form.Label>
+                <Form.Label htmlFor='date'><strong>Date</strong></Form.Label>
                 <Form.Control 
                     type="date"
+                    id='date'
                     value={date} 
                     onChange={e => setDate(e.target.value)} 
                     required
